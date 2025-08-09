@@ -1,58 +1,25 @@
-# Take‑Home Assessment
+# Bitgesell Take-Home Assessment
 
-Welcome, candidate! This project contains **intentional issues** that mimic real‑world scenarios.
-Your task is to refactor, optimize, and fix these problems.
+This repository contains the fixed backend and frontend code for the Bitgesell Senior Software Engineer take-home assessment.
 
-## Objectives
+## Project Overview
 
-### 🔧 Backend (Node.js)
+- Backend: Node.js Express API with async file operations, cached stats, pagination, and search.
+- Frontend: React app with safe fetches (AbortController), pagination, search, and virtualized item list.
+- Unit tests for backend routes using Jest and Supertest.
+- Clear instructions to run the project and tests.
 
-1. **Refactor blocking I/O**  
-   - `src/routes/items.js` uses `fs.readFileSync`. Replace with non‑blocking async operations.
+## Requirements
 
-2. **Performance**  
-   - `GET /api/stats` recalculates stats on every request. Cache results, watch file changes, or introduce a smarter strategy.
+- Node.js v18.x
+- npm
 
-3. **Testing**  
-   - Add **unit tests** (Jest) for items routes (happy path + error cases).
+## Setup & Run
 
-### 💻 Frontend (React)
+### Backend
 
-1. **Memory Leak**  
-   - `Items.js` leaks memory if the component unmounts before fetch completes. Fix it.
-
-2. **Pagination & Search**  
-   - Implement paginated list with server‑side search (`q` param). Contribute to both client and server.
-
-3. **Performance**  
-   - The list can grow large. Integrate **virtualization** (e.g., `react-window`) to keep UI smooth.
-
-4. **UI/UX Polish**  
-   - Feel free to enhance styling, accessibility, and add loading/skeleton states.
-
-### 📦 What We Expect
-
-- Idiomatic, clean code with comments where necessary.
-- Solid error handling and edge‑case consideration.
-- Tests that pass via `npm test` in both frontend and backend.
-- A brief `SOLUTION.md` describing **your approach and trade‑offs**.
-
-## Quick Start
-
-node version: 18.XX
 ```bash
-nvm install 18
-nvm use 18
-
-# Terminal 1
 cd backend
 npm install
+npm test
 npm start
-
-# Terminal 2
-cd frontend
-npm install
-npm start
-```
-
-> The frontend proxies `/api` requests to `http://localhost:3001`.
